@@ -3,7 +3,7 @@ This is the repo of my Linux rice; a minimal friendly desktop to the user sight.
 
 ![Screenshot](screenshot.png)
 
-# Programs whose dotfiles/installation files can be found here
+## Programs whose dotfiles/installation files can be found here
 
 + [i3wm](https://i3wm.org/)
 + [vim](https://www.vim.org/)
@@ -14,6 +14,6 @@ This is the repo of my Linux rice; a minimal friendly desktop to the user sight.
 + [rofi](https://github.com/DaveDavenport/rofi)
 + [compton](https://github.com/chjj/compton)
 
-# Dependencies
+## Dependencies
 
 * [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
