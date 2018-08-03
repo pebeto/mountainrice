@@ -1,14 +1,14 @@
 # vim: filetype=i3
 # This is the Solarized Panda i3 config
 # This uses VIM-Like bindings
-# Github: 
+# Github: https://github.com/pebeto/solarizedpanda/
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Main key modifier
 set $mod Mod4		# Windows Key
 
 # Startup utilities
-exec --no-startup-id xrdb /home/pebeto/.Xresources							# Loads .Xresources
+exec --no-startup-id xrdb ~/.Xresources									# Loads .Xresources
 exec --no-startup-id setxkbmap -layout latam								# Loads LATAM keyboard layout
 exec --no-startup-id udiskie -n -s									# Starts USB automounter
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/simplepanda.png					# Sets the Light Panda Solarized background
@@ -18,8 +18,8 @@ exec_always --no-startup-id polybar example								# Starts the status bar and i
 
 # Window frame options
 for_window [class="^.*"] border pixel 1		# Disable titlebar
-gaps inner 10		# My laptop is a Lenovo G50-70
-gaps outer 14		# Resolution: 1366x768
+gaps inner 10					# My laptop is a Lenovo G50-70
+gaps outer 14					# Resolution: 1366x768
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
