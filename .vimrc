@@ -16,9 +16,14 @@ set noshowmode
 set tabstop=4
 set background=dark
 
-colorscheme solarized
+if ($TERM == 'linux')
+		colorscheme default
+else
+		colorscheme solarized
+endif
 
 let g:livepreview_previewer = 'zathura'
+so ~/.vim/bundle/vim-colors-solarized/autoload/togglebg.vim
 
 map <C-o> :NERDTreeToggle<CR>
 map <C-p> :LLPStartPreview<CR>

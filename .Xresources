@@ -60,4 +60,4 @@ URxvt.externalBorder:  0
 URxvt.internalBorder:  0
 URxvt.intensityStyles: false
 URxvt.scrollBar: false
-URxvt*font: xft:DejaVuSansMono Nerd Font:antialias=true:hinting=true:size=10
+URxvt*font: xft:Hack Nerd Font Mono:antialias=true:hinting=true:size=10
