@@ -8,11 +8,14 @@
 # main key modifier
 set $mod mod4
 
+# environment variables
+set $term --no-startup-id $TERM
+
 # startup utilities
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id setxkbmap -layout latam
 exec --no-startup-id udiskie -n -s
-exec_always --no-startup-id feh --bg-scale ~/.config/i3/simplepanda.png
+exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id compton --backend glx --vsync opengl --config ~/.config/compton.conf
 exec_always --no-startup-id polybar example	
@@ -44,19 +47,19 @@ mode "resize" {
 bindsym $mod+Shift+r mode "resize"
 
 # locks the screen
-bindsym $mod+Shift+Delete exec --no-startup-id betterlockscreen -l
+bindsym $mod+Shift+Delete exec --no-startup-id betterlockscreen -l blur
 
 # takes a screenshot of whole screen
-bindsym print exec --no-startup-id scrot ~/Images/Screenshots/%Y-%m-%d_%T.png
+bindsym Print exec --no-startup-id scrot ~/Images/Screenshots/%Y-%m-%d_%T.png
 
 # takes a screenshot of focused window
 bindsym Shift+Print exec --no-startup-id scrot -u ~/Images/Screenshots/%Y-%m-%d_%T.png
 
 # open ranger
-bindsym $mod+r exec --no-startup-id urxvt -e ranger
+bindsym $mod+r exec $term -e ranger
 
 # open r (calculator)
-bindsym $mod+c exec --no-startup-id urxvt -title "calculator" -geometry 50x15 -e R -q
+bindsym $mod+c exec $term -title "calculator" -geometry 50x15 -e R -q
 
 # r (calculator) window options
 for_window [title="calculator"] floating enable
@@ -64,35 +67,39 @@ for_window [title="calculator"] move position 1400 700
 no_focus [title="calculator"]
 
 # open the config folder
-bindsym xf86tools exec --no-startup-id urxvt -cd ~/.config
+bindsym xf86tools exec $term -cd ~/.config
 
 # open firefox
 bindsym $mod+f exec --no-startup-id firefox
 
 # pulse audio controls
-bindsym xf86audioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym xf86audioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym xf86audioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym xf86audioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 
 # screen brightness controls
-bindsym xf86monBrightnessUp exec --no-startup-id light -A 5
-bindsym xf86monBrightnessDown exec --no-startup-id light -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # touchpad controls
-bindsym xf86touchpadToggle exec --no-startup-id ~/.config/i3/toggletouchpad.sh
+bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/i3/toggletouchpad.sh
 
-# keyboard layout
-bindsym xf86launch2 exec --no-startup-id ~/.config/i3/switchkeyboard.sh
+# personal use keys (Thinkpad T470)
+# keyboard layout {Fn+F11}
+bindsym XF86Launch2 exec --no-startup-id ~/.config/i3/switchkeyboard.sh
+
+# Favorite key (Fn+F12) [mutt]
+bindsym XF86Launch1 exec --no-startup-id $term -e mutt
 
 # media player controls
-bindsym xf86audioPlay exec --no-startup-id playerctl play
-bindsym xf86audioPause exec --no-startup-id playerctl pause
-bindsym xf86audioNext exec --no-startup-id playerctl next
-bindsym xf86audioPrev exec --no-startup-id playerctl previous
+bindsym XF86audioPlay exec --no-startup-id playerctl play
+bindsym XF86audioPause exec --no-startup-id playerctl pause
+bindsym XF86audioNext exec --no-startup-id playerctl next
+bindsym XF86audioPrev exec --no-startup-id playerctl previous
 
 # open terminal
-bindsym $mod+return exec --no-startup-id urxvt
+bindsym $mod+return exec $term
 
 # kill focused window
 bindsym $mod+q kill
