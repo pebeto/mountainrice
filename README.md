@@ -1,5 +1,5 @@
 # mountainRice
-## The perfect developer working environment
+### The perfect developer working environment
 
 WIP
 
