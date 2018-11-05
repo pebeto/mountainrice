@@ -1,4 +1,4 @@
 # Mountain Rice
 WIP
 
-[Image](screenshot.png)
+![Image](screenshot.png "mountainRice")
