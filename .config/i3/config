@@ -15,13 +15,13 @@ set $term --no-startup-id $TERM
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id setxkbmap -layout latam
 exec --no-startup-id udiskie -n -s
-exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale ~/.mountainrice/wallpaper.jpg
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id compton --backend glx --vsync opengl --config ~/.config/compton.conf
-exec_always --no-startup-id polybar example	
+exec_always --no-startup-id polybar example
 
 # window frame options
-for_window [class="^.*"] border pixel 1	
+for_window [class="^.*"] border pixel 1
 gaps inner 10
 gaps outer 14
 
@@ -67,7 +67,7 @@ for_window [title="calculator"] move position 1400 700
 no_focus [title="calculator"]
 
 # open the config folder
-bindsym xf86tools exec $term -cd ~/.config
+bindsym XF86Tools exec $term -cd ~/.config
 
 # open firefox
 bindsym $mod+f exec --no-startup-id firefox
@@ -82,12 +82,12 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-# touchpad controls
-bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/i3/toggletouchpad.sh
+# touchpad toggle on/off
+bindsym XF86TouchpadToggle exec --no-startup-id ~/.mountainrice/scripts/toggletouchpad.sh
 
 # personal use keys (Thinkpad T470)
 # keyboard layout {Fn+F11}
-bindsym XF86Launch2 exec --no-startup-id ~/.config/i3/switchkeyboard.sh
+bindsym XF86Launch2 exec --no-startup-id ~/.mountainrice/scripts/switchkeyboard.sh
 
 # Favorite key (Fn+F12) [mutt]
 bindsym XF86Launch1 exec --no-startup-id $term -e mutt

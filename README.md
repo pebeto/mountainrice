@@ -7,6 +7,6 @@
 >
 >Nietzche, F.
 
-![Image](screenshot.png "mountainRice")
+![Image](.mountainrice/screenshot.png "mountainRice")
 
 **mountainRice** is a working environment focused on simplicity, usability and customization. 
