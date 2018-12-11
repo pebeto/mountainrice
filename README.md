@@ -54,3 +54,8 @@
 | | Link |
 --- | ---
 **polybar-spotify** | https://github.com/Jvanrhijn/polybar-spotify
+
+---
+
+**Wallpaper by:** [Tyler Lastovich](https://www.instagram.com/tylerlastovich/)\
+**Colorscheme by:** [Ethan Schoonover](https://github.com/altercation/solarized)
