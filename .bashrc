@@ -1,4 +1,6 @@
 #!/bin/env bash
+# AUTHOR: Chris Marsh
+# Github: https://github.com/chris-marsh
 
 if [ "$(echo $TERM)" == "linux" ]; then
 	
@@ -393,6 +395,8 @@ if [ "$(echo $TERM)" == "linux" ]; then
 	# dynamically set the  PS1
 	[[ ! ${PROMPT_COMMAND} =~ 'pureline_ps1;' ]] && PROMPT_COMMAND="pureline_ps1; $PROMPT_COMMAND" || true
 else
+    ## AUTHOR: Rio
+    ## Github: https://github.com/riobard
 	## Uncomment to disable git info
 	#POWERLINE_GIT=0
 	

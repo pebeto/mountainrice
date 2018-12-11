@@ -1,4 +1,6 @@
 #!/bin/python
+# AUTHOR: Jvanrhijn
+# Github: https://github.com/Jvanrhijn
 
 import sys
 import dbus
