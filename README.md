@@ -20,6 +20,7 @@
 **dunst** | https://github.com/dunst-project/dunst
 **gtk-3.0** | https://github.com/GNOME/gtk
 **i3-gaps** | https://github.com/Airblader/i3
+**light** | https://github.com/haikarainen/light
 **neofetch** | https://github.com/dylanaraps/neofetch
 **polybar** | https://github.com/jaagr/polybar
 **rofi** | https://github.com/DaveDavenport/rofi
