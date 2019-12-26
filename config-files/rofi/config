@@ -1,0 +1,11 @@
+rofi.font:              Hack Nerd Font 10
+rofi.lines:             3
+rofi.hide-scrollbar:    true
+rofi.width:             12
+
+rofi.color-enabled:     true
+
+rofi.color-window:      #272822, #272822, #272822
+rofi.color-normal:      #383830, #f8f8f2, #272822, #f8f8f2, #272822
+rofi.color-active:      #a59f85, #272822, #a59f85, #a2e22e, #272822
+rofi.color-urgent:      #272822, #da4281, #003643, #008ed4, #890661

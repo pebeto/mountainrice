@@ -9,22 +9,16 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0}
 background = #00000000
 background-alt = #444
 foreground = #073642
-;foreground = #dfdfdf
 foreground-alt = #555
 primary = #b58900
-;primary = ${xrdb:color3}
 secondary = #d33682
-;secondary = #e60053
 alert = #dc322f
 col = #268bd2
-;fg = ${xrdb:color7}
-;bg = ${xrdb:color2}
 
-[bar/example]
+[bar/mountainRice]
 ;monitor = ${env:MONITOR:HDMI-1}
 ;monitor = ${env:MONITOR}
 monitor = ${env:MONITOR:eDP-1}
@@ -39,7 +33,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = {$xrdb:color1}
+line-color = ${xrdb:color1:#222}
 
 border-size = 0
 border-color = #00000000
@@ -50,15 +44,14 @@ padding-right = 0
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = Overpass Nerd Font:size=10:antialias=true;1
-font-1 = Overpass Nerd Font:size=10:antialias=true;1
-font-2 = Overpass Nerd Font:size=10:antialias=true;1
+font-0 = Overpass Nerd Font:size=11:antialias=true;1
+font-1 = Overpass Nerd Font:size=11:antialias=true;1
+font-2 = Overpass Nerd Font:size=11:antialias=true;1
 
 #modules-left = i3
-modules-left = i3 spotify
+modules-left = bspwm
 modules-center = clock
-#modules-right = volume wlan eth battery temperature date
-modules-right = volume backlight-acpi battery wlan eth date
+modules-right = volume backlight battery wlan eth date
 
 tray-position = right
 tray-padding = 0
@@ -73,17 +66,8 @@ tray-padding = 0
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = " "
-format-prefix-foreground = #1db954
-format = <label>
-exec = python ~/.mountainrice/scripts/spotify_status.py
-format-underline = #1db954
+scroll-up = bspwm-wsnext
+scroll-down = bspwm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
@@ -124,22 +108,38 @@ mount-0 = /home
 label-mounted = %{F#0a81f5}~%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true
+format = <label-state> <label-mode>
+
+label-mode-padding = 1
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.primary}
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = #002b36
+label-focused-foreground = #fdf6e3
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
+label-unfocused = %index%
+label-unfocused-padding = 2
+
 label-occupied = %index%
 label-occupied-padding = 2
+
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
+label-empty = 
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
@@ -160,7 +160,6 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = #002b36
 label-focused-foreground = #fdf6e3
-;label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
@@ -206,25 +205,19 @@ label-song =  %artist% - %title%
 label-song-maxlen = 70
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
-format = <label>
-label =  %percentage%%
-
-[module/backlight-acpi]
-inherit = module/xbacklight
+[module/backlight]
 type = internal/backlight
 card = intel_backlight
+label =  %percentage%%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-;format-underline = ${xrdb:color7}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color1}
+format-underline = ${xrdb:color1:#222}
 label = %percentage%%
 
 [module/memory]
@@ -232,7 +225,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color6}
+format-underline = ${xrdb:color6:#222}
 label = %percentage_used%%
 
 [module/wlan]
@@ -250,15 +243,15 @@ format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 label-disconnected = 睊
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
-interface = enp1s0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-prefix =  
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
 
 ;format-disconnected =
@@ -266,7 +259,7 @@ format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 label-disconnected = 
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground}
 
 [module/clock]
 type = internal/date
@@ -282,11 +275,6 @@ type = internal/date
 interval = 5
 
 date = " %a, %b %d, %Y "
-;date-alt = " %a, %b %d, %Y at %I:%M%p"
-;date-alt = " %Y-%m-%d"
-
-;time = "- %I:%M%p "
-
 # If you're not living in a country where AM and PM is used you can add -alt to the time above this line and comment it using ;, then you can remove the -alt to the time under this line and uncomment it.
 #time = "- %H:%M "
 ;time-alt = %H:%M:%S
@@ -332,9 +320,9 @@ label-muted = ﱝ
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+full-at = 100
+battery = BAT1
 adapter = ADP0
-full-at = 98
 
 ;format-charging = Charging... <label-charging>
 format-charging = <animation-charging> <label-charging>
@@ -370,7 +358,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = ${xrdb:color1}
+format-underline = ${xrdb:color1:#222}
 ;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
@@ -421,5 +409,3 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-
